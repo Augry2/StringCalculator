@@ -5,11 +5,23 @@ import java.util.List;
 
 public class StringCalculator {
     public int add(String numbers) {
-        // convert string s to numbers separated with comma
-        String[] numbersArray = numbers.split("[,\\\\n]+");
 
         if (numbers.isEmpty())
             return 0;
+
+        // if no custom delimiter is specified use this
+        String delimiter = ",|\\n";
+
+        // if a delimiter is specified using //
+        if (numbers.startsWith("//")) {
+            int delimiterIndex = numbers.indexOf("\n");
+            delimiter = numbers.substring(2, delimiterIndex);
+            numbers = numbers.substring(delimiterIndex + 1);
+        }
+
+
+
+        String[] numbersArray = numbers.split(delimiter);
 
         int sum = 0;
         int num = 0;

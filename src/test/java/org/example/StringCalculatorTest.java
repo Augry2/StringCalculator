@@ -65,6 +65,24 @@ class StringCalculatorTest {
     }
 
     // STEP 4
+    @Test
+    @DisplayName("add can use semi colon as delimiter")
+    void addCanUseSemiColonAsDelimiter() {
+        StringCalculator calc = new StringCalculator();
 
+        int result = calc.add("//;\n1;2");
+
+        assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("add can use hashtag as delimiter")
+    void addCanUseHashtagAsDelimiter() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("//#\n1#2");
+
+        assertThat(result).isEqualTo(3);
+    }
 
 }
