@@ -30,6 +30,16 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(0);
     }
 
+    @Test
+    @DisplayName("add method returns 0 if empty string")
+    void addMethodReturns0IfEmptyString() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("");
+
+        assertThat(result).isEqualTo(0);
+    }
+
 
 
 
