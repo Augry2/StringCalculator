@@ -6,7 +6,7 @@ import java.util.List;
 public class StringCalculator {
     public int add(String numbers) {
         // convert string s to numbers separated with comma
-        String[] numbersArray = numbers.split(",");
+        String[] numbersArray = numbers.split("[,\n]");
 
         if (numbers.isEmpty())
             return 0;

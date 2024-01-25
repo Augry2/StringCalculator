@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +21,7 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Disabled("Test no longer in use")
     @Test
     @DisplayName("add method can only take two numbers")
     void addMethodCanOnlyTakeTwoNumbers() {
@@ -41,7 +43,6 @@ class StringCalculatorTest {
     }
 
     // STEP 2
-
     @Test
     @DisplayName("add can handle unknown amount of numbers")
     void addCanHandleUnknownAmountOfNumbers() {
@@ -50,6 +51,17 @@ class StringCalculatorTest {
         int result = calc.add("1,2,3,4,5");
 
         assertThat(result).isEqualTo(15);
+    }
+
+    // STEP 3
+    @Test
+    @DisplayName("allow add to separate the numbers using new line or comma ")
+    void allowAddToSeparateTheNumbersUsingNewLineOrComma() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("1\n2,3");
+
+        assertThat(result).isEqualTo(6);
     }
 
 
