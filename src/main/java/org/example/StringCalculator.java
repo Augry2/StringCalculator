@@ -8,6 +8,9 @@ public class StringCalculator {
         // convert string s to numbers separated with comma
         String[] numbersArray = numbers.split(",");
 
+        if (numbersArray.length > 2)
+            return 0;
+
         int sum = 0;
         int num = 0;
 

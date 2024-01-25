@@ -20,7 +20,15 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("add method can only take two numbers")
+    void addMethodCanOnlyTakeTwoNumbers() {
+        StringCalculator calc = new StringCalculator();
 
+        int result = calc.add("1,2,3");
+
+        assertThat(result).isEqualTo(0);
+    }
 
 
 
