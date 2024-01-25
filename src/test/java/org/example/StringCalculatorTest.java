@@ -64,5 +64,7 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(6);
     }
 
+    // STEP 4
+
 
 }
