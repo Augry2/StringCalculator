@@ -11,9 +11,6 @@ public class StringCalculator {
         if (numbers.isEmpty())
             return 0;
 
-        if (numbersArray.length > 2)
-            return 0;
-
         int sum = 0;
         int num = 0;
 

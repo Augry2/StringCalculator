@@ -40,7 +40,17 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(0);
     }
 
+    // STEP 2
 
+    @Test
+    @DisplayName("add can handle unknown amount of numbers")
+    void addCanHandleUnknownAmountOfNumbers() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("1,2,3,4,5");
+
+        assertThat(result).isEqualTo(15);
+    }
 
 
 }
