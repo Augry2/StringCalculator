@@ -119,7 +119,16 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(2);
     }
     
-    
+    // STEP 7
+    @Test
+    @DisplayName("delimiters can be of any length of characters")
+    void delimitersCanBeOfAnyLengthOfCharacters() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("//[***]\n1***2***3");
+
+        assertThat(result).isEqualTo(6);
+    }
     
     
     
