@@ -10,7 +10,6 @@ public class StringCalculator {
             return 0;
 
 
-
         // if no custom delimiter is specified use this
         String delimiter = ",|\\n";
 
@@ -32,11 +31,15 @@ public class StringCalculator {
             throw new IllegalArgumentException("negatives not allowed " + negativeNumbers);
         }
 
+
+
         int sum = 0;
         int num = 0;
 
         for (String curEle : numbersArray) {
             num = Integer.parseInt(curEle);
+            if (num > 1000)
+                num = 0;
             sum = sum + num;
         }
 

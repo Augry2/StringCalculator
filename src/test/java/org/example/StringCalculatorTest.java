@@ -104,12 +104,20 @@ class StringCalculatorTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             calc.add("-5,10");
         });
-        System.out.println(exception);
+
         assertThat(exception).hasMessageContaining("-5");
     }
 
     // STEP 6
+    @Test
+    @DisplayName("numbers larger than 1000 should be ignored")
+    void numbersLargerThan1000ShouldBeIgnored() {
+        StringCalculator calc = new StringCalculator();
 
+        int result = calc.add("2,1001");
+
+        assertThat(result).isEqualTo(2);
+    }
     
     
     
