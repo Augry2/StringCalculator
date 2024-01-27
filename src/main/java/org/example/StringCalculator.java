@@ -10,7 +10,7 @@ public class StringCalculator {
             return 0;
 
         if (numbers.contains("-")){ //  todo maybe not so good if the users sends in - as delimter
-            throw new IllegalArgumentException("negatives not allowed");
+            throw new IllegalArgumentException("negatives not allowed " + numbers);
         }
 
         // if no custom delimiter is specified use this

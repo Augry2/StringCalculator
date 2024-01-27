@@ -95,11 +95,20 @@ class StringCalculatorTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             calc.add("-5,10");
         });
-
-
     }
 
-    
+    @Test
+    @DisplayName("exception message will contain the negative numbers that is passed")
+    void exceptionMessageWillContainTheNegativeNumbersThatIsPassed() {
+        StringCalculator calc = new StringCalculator();
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calc.add("-5,10");
+        });
+
+        assertThat(exception).hasMessageContaining("-5");
+
+    }
     
     
     
