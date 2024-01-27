@@ -86,7 +86,6 @@ class StringCalculatorTest {
     }
 
     // STEP 5
-
     @Test
     @DisplayName("calling add with negative number will throw exception")
     void callingAddWithNegativeNumberWillThrowException() {
@@ -105,11 +104,12 @@ class StringCalculatorTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             calc.add("-5,10");
         });
-
+        System.out.println(exception);
         assertThat(exception).hasMessageContaining("-5");
-
     }
-    
+
+    // STEP 6
+
     
     
     

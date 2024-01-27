@@ -9,9 +9,7 @@ public class StringCalculator {
         if (numbers.isEmpty())
             return 0;
 
-        if (numbers.contains("-")){ //  todo maybe not so good if the users sends in - as delimter
-            throw new IllegalArgumentException("negatives not allowed " + numbers);
-        }
+
 
         // if no custom delimiter is specified use this
         String delimiter = ",|\\n";
@@ -24,6 +22,15 @@ public class StringCalculator {
         }
 
         String[] numbersArray = numbers.split(delimiter);
+
+        String negativeNumbers = "";
+        for(String curNum : numbersArray){
+            if (curNum.startsWith("-"))
+                negativeNumbers += curNum + ",";
+        }
+        if (numbers.contains("-")){ //  todo maybe not so good if the users sends in - as delimter
+            throw new IllegalArgumentException("negatives not allowed " + negativeNumbers);
+        }
 
         int sum = 0;
         int num = 0;
