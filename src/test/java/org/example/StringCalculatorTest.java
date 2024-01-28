@@ -129,7 +129,16 @@ class StringCalculatorTest {
 
         assertThat(result).isEqualTo(6);
     }
-    
+
+    @Test
+    @DisplayName("add can use two separate delimiters")
+    void addCanUseTwoSeparateDelimiters() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("//[*][%]\n1*2%3");
+
+        assertThat(result).isEqualTo(6);
+    }
     
     
     

@@ -11,26 +11,15 @@ public class StringCalculator {
             return 0;
 
         // if no custom delimiter is specified use this
-        String delimiter = ",|\\n";
-
-
-        if (numbers.startsWith("//[")) {
-            int startDelimiterIndex = numbers.indexOf("[") + 1;
-            int endDelimiterIndex = numbers.indexOf("]");
-            String customDelimiter = numbers.substring(startDelimiterIndex, endDelimiterIndex);
-
-            // Update the regular expression to use the custom delimiter
-            delimiter = Pattern.quote(customDelimiter) + "|\\n";
-
-            // Remove the custom delimiter part from the input string
-            numbers = numbers.substring(endDelimiterIndex + 2); // +2 to skip "]\\n"
-        }
+        String delimiter = "[,|\n]";
 
         // if a delimiter is specified using //
         if (numbers.startsWith("//")) {
-            int delimiterIndex = numbers.indexOf("\n");
-            delimiter = numbers.substring(2, delimiterIndex);
-            numbers = numbers.substring(delimiterIndex + 1);
+            int startDelimiterIndex = numbers.indexOf("//") + 2;
+            int endDelimiterIndex = numbers.indexOf("\n");
+            String customDelim = numbers.substring(startDelimiterIndex, endDelimiterIndex);
+            delimiter = "[" + Pattern.quote(customDelim) + "|\n]";
+            numbers = numbers.substring(endDelimiterIndex + 1);
         }
 
 
@@ -49,10 +38,12 @@ public class StringCalculator {
         int num = 0;
 
         for (String curEle : numbersArray) {
-            num = Integer.parseInt(curEle);
-            if (num > 1000)
-                num = 0;
-            sum = sum + num;
+            if (!curEle.isEmpty()) {
+                num = Integer.parseInt(curEle);
+                if (num > 1000)
+                    num = 0;
+                sum = sum + num;
+            }
         }
 
         return sum;
