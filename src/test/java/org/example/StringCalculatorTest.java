@@ -130,6 +130,7 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(6);
     }
 
+    // STEP 8
     @Test
     @DisplayName("add can use two separate delimiters")
     void addCanUseTwoSeparateDelimiters() {
@@ -139,11 +140,15 @@ class StringCalculatorTest {
 
         assertThat(result).isEqualTo(6);
     }
-    
-    
-    
-    
-    
-    
 
+    // STEP 9
+    @Test
+    @DisplayName("add can use two different delimiters that can be longer than one character")
+    void addCanUseTwoDifferentDelimitersThatCanBeLongerThanOneCharacter() {
+        StringCalculator calc = new StringCalculator();
+
+        int result = calc.add("//[gggg][**]\n1gggg2**3");
+
+        assertThat(result).isEqualTo(6);
+    }
 }

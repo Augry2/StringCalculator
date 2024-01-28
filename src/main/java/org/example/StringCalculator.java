@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -22,7 +20,6 @@ public class StringCalculator {
             numbers = numbers.substring(endDelimiterIndex + 1);
         }
 
-
         String[] numbersArray = numbers.split(delimiter);
 
         String negativeNumbers = "";
@@ -30,7 +27,7 @@ public class StringCalculator {
             if (curNum.startsWith("-"))
                 negativeNumbers += curNum + ",";
         }
-        if (numbers.contains("-")){ //  todo maybe not so good if the users sends in - as delimter
+        if (numbers.contains("-")){
             throw new IllegalArgumentException("negatives not allowed " + negativeNumbers);
         }
 
